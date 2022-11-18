@@ -8,18 +8,17 @@ let feedback = {
     userEmail: "",
     userMessage: "",
 }
+let feedbackJson = JSON.stringify(feedback);
 
 checkStorage();
 
 email.addEventListener('input', _.throttle(() => {
     feedback.userEmail = email.value;
-    feedbackJson = JSON.stringify(feedback);
     localStorage.setItem("feedback-form-state", feedbackJson);
 }, 500));
 
 message.addEventListener('input', _.throttle(() => {
     feedback.userMessage = message.value;
-    feedbackJson = JSON.stringify(feedback);
     localStorage.setItem("feedback-form-state", feedbackJson);
 }, 500));
 
